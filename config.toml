@@ -12,3 +12,4 @@ hyde_links = [
 ]
 hyde_show_analytics = false
 hyde_analytics_content = ""
+hyde_datetime_format = "%Y-%m-%d"
