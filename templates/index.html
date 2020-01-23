@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% if config.extra.hyde_show_analytics %}
+      {{ config.extra.hyde_analytics_content | safe }}
+    {% endif %}
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
@@ -68,9 +72,5 @@
         </div>
       {% endblock content %}
     </div>
-
-    {% if config.extra.hyde_show_analytics %}
-      {{ config.extra.hyde_analytics_content | safe }}
-    {% endif %}
   </body>
 </html>
