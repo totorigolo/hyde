@@ -60,7 +60,7 @@
               </h1>
               {% if page.date %}
                 <span class="post-date">
-                  {{ page.date | date(format="%Y-%m-%d") }}
+                  {{ page.date | date(format=config.extra.hyde_datetime_format) }}
                 </span>
               {% endif %}
             </div>
