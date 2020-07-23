@@ -68,8 +68,14 @@
                   {{ page.date | date(format=config.extra.hyde_datetime_format) }}
                 </span>
               {% endif %}
-              {% if page.description %}
-                <p class="post-description">{{ page.description | safe }}</p>
+              {% if page.extra.extract_from is undefined or page.extra.extract_from == false %}
+                {# Nothing. #}
+              {% elif page.extra.extract_from is string %}
+                {% if page.extra.extract_from is matching("description") %}
+                  <p class="post-description">{{ page.description | safe }}</p>
+                {% elif page.extra.extract_from is matching("content") %}
+                  <p class="post-description">{{ page.content | striptags | truncate(length=300) | safe }}</p>
+                {% endif %}
               {% endif %}
             </div>
           {% endfor %}
